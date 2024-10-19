@@ -20,7 +20,7 @@ export interface IFontAnalyze {
 export interface IFontExtract {
     arrayFilesNames: string[];
     extractPackagesZip(filesPaths: string[]): void;
-    pathChangeToPublic(path: string): string;
+    pathChangeToTemp(path: string): string;
     listPathFontFiles(path: string): void;
 }
 
@@ -30,7 +30,13 @@ export interface IFontExtractData {
 };
 
 export interface IFontOrganize {
-    organizeFontFiles(pathFontFiles: string[]): void;
+    data: IFontOrganizeData;
+    publicPath: string;
+    loaderFontsPath: string;
+    arrayFontFiles: string[];
+    typesExtFont: string[];
+    obtainFontFilesPath(publicPath: string): string[];
+    organizeFontFiles(pathFontFiles: string, arrayFontFiles: string[]): void;
 }
 
 export interface IFontOrganizeData {

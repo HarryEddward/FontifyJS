@@ -4,7 +4,7 @@ import type { IFontInit, IFontData } from './types';
 import {join} from 'path';
 
 export class FontInit implements IFontInit {
-    public typesExtFont: string[] = ['ttf', 'otf'];
+    public typesExtFont: string[] = ['.ttf', '.otf'];
     public arrayFilesNames: string[] = [];
     public folderWorkPath: string = '';
     public nameReactProject: string | undefined;

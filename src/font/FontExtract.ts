@@ -20,11 +20,11 @@ export class FontExtract<T extends IFontExtractData = IFontExtractData> implemen
     constructor(data: IFontExtractData) {
         this.arrayFilesNames = data.arrayFilesNames;
         this.workPath = data.workPath;
-        this.publicPath = this.pathChangeToPublic(this.workPath);
+        this.publicPath = this.pathChangeToTemp(this.workPath);
         this.extractPackagesZip(this.arrayFilesNames);
     }
 
-    public pathChangeToPublic(path: string): string {
+    public pathChangeToTemp(path: string): string {
         // Retrocede un nivel en el path y entra a 'public'
         return join(dirname(path), 'public');
     }

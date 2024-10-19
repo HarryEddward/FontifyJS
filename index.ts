@@ -7,3 +7,10 @@ import { FontifyJS } from "./src/index.ts";
 
 
 FontifyJS({ nameReactProject: "tests/my-react-project" });
+
+
+/**
+ * 
+ * IMPORTANTE CA;BIAR LA RUTA PUBLICA A UNA TEMPORAL PARA PODER LUEGO
+ * AÑADIR LOS ARCHIVOS EN PUBLIC BIEN PUESTO EN UNA CARPETA SIN MODIFICAR NADA DEL PUBLIC
+ */
