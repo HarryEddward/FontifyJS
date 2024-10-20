@@ -6,18 +6,16 @@
   <img src="./.github/media/img/FY.png" alt="Descripción de la imagen" width="300"/>
 </p>
 
-<p align="center">
+<div align="center">
   <h3>Use Tailwind with automatic font:</h3>
-</p>
 
-<p align="center">
   <ul>
     <li>Check the compatible font (.ttf)</li>
     <li>Extract Font-Zip Files</li>
     <li>Organize with folders</li>
     <li>Optimize all of your fonts in .woff2</li>
   </ul>
-</p>
+</div>
 
 ## Usage
 `/fontify.js/{your_project}`
