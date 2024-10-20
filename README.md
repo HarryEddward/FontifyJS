@@ -14,7 +14,7 @@ import { FontifyJS } from "../src";
 FontifyJS({ projectDir: 'my-project' });
 ```
 
-### Example Tree React Project
+### Example React Project
 ```bash
 .
 └── my-project
