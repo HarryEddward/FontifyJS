@@ -25,7 +25,7 @@ FontifyJS({ projectDir: 'my-project' });
 node fontify.js
 ```
 
-Recommended:
+Recommended (Native Version):
 ```bash
 bun fontify.ts
 ```
@@ -33,7 +33,15 @@ bun fontify.ts
 3 temporary folders will be created for the organization, decompression and optimization of the fonts in the main folder of the project and then the fonts will be saved in **`/public/fonts/fontify`** in different folders for each of the zips to be used.
 
 ## Manual Cconfiguration
-When you want tu use Tailwind, Fontify provides two files. The css file of all configurate fonts of all fonts (.ttf) in the all zips to .woff2, and create a tailwind configure file for configure in `tailwind.config.js` the **fontFamily**. And inside exports an object to use directly to the tailwind file. Examples:
+When you want to use Tailwind, Fontify provides two files. The css file of all configurate fonts of all fonts (.ttf) in the all zips to .woff2, and create a tailwind configure file for configure in `tailwind.config.js` the **fontFamily**. And inside exports an object to use directly to the tailwind file. Examples:
+
+```bash
+.
+└── my-project
+    ...
+    ├── fontify.css
+    └── fontifyTailwind.js
+```
 
 `/{your_project}/fontify.css`
 ```css
