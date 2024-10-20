@@ -7,7 +7,7 @@
 </p>
 
 ## Usage
-`/index.js/{your_project}`
+`/fontify.js/{your_project}`
 ```typescript
 import { FontifyJS } from "../src";
 
