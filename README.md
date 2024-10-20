@@ -14,6 +14,12 @@ import { FontifyJS } from "../src";
 FontifyJS({ projectDir: 'my-project' });
 ```
 
+### Steps before execute
+- Put all of your zip-font files inside of /{your_project}/**fontLoader**
+- Do not put other type of file that is not a .zip file inside of fontLoader
+- Put only in the main directory (/fontLoader) the zip files, not in subdirectorys
+- If you put .otf file the lib can not convert to woff2 (beta)
+
 ### Example React Project
 ```bash
 .
