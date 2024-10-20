@@ -11,7 +11,7 @@
     <p>🔍 Check the compatible font (.ttf)</p>
     <p>🗂️ Extract Font-Zip Files</p>
     <p>🔄 Optimize all of your fonts in .woff2</p>
-    <p>📂 Organize with folders</p>
+    <p>📂 Organize in separate folders</p>
 </div>
 
 ## Usage
