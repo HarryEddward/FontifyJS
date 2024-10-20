@@ -40,7 +40,7 @@ bun fontify.ts
 ### What will happen?
 3 temporary folders will be created for the organization, decompression and optimization of the fonts in the main folder of the project and then the fonts will be saved in **`/public/fonts/fontify`** in different folders for each of the zips to be used.
 
-## Manual Cconfiguration
+## Manual Configuration
 When you want to use Tailwind, Fontify provides two files. The css file of all configurate fonts of all fonts (.ttf) in the all zips to .woff2, and create a tailwind configure file for configure in `tailwind.config.js` the **fontFamily**. And inside exports an object to use directly to the tailwind file. Examples:
 
 ```bash
@@ -59,7 +59,7 @@ Thanks for using FonitfyJS here can you manage all of the proccesed fonts for yo
 @tailwind utilities;
 
 @font-face {
-    font-family: 'AGDASIMA_agdasima_regular';
+    font-family: 'AGDASIMA_agdasima_regular'; /*👈 NameFolder_NameFont*/
     src: url('./public/fonts/fontify/agdasima/agdasima_regular.woff2') format('woff2');
 }, ...
 ```
@@ -70,8 +70,8 @@ Thanks for using FonitfyJS here can you manage all of the proccesed fonts for yo
  * Tailwind's configuration from FontFamily
 */
 export const configFontifyFonts = {
-  "AGDASIMA_agdasima_regular": [
-    "AGDASIMA_agdasima_regular",
+  "AGDASIMA_agdasima_regular": [ /*👈 NameFolder_NameFont*/
+    "AGDASIMA_agdasima_regular", 
     "sans-serif"
   ],
   "AGDASIMA_agdasima_bold": [
@@ -82,7 +82,7 @@ export const configFontifyFonts = {
 
 `tailwind.config.js`
 ```javascript
-import { configFontifyFonts } from './fontifyTailwind';
+import { configFontifyFonts } from './fontifyTailwind'; /*👈*/
 
 /** @type {import('tailwindcss').Config} */
 export default {
