@@ -7,9 +7,11 @@
 </p>
 
 ## Usage
-`/index.ts/{your_project}`
+`/index.js/{your_project}`
 ```typescript
+import { FontifyJS } from "../src";
 
+FontifyJS({ projectDir: 'my-project' });
 ```
 
 ### Example Tree React Project

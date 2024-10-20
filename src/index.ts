@@ -1,7 +1,4 @@
 // src/index.ts
-export { FontAnalyze } from "./font/index.ts";
-export { FontExtract } from "./font/index.ts";
-export { FontOptimize } from "./font/index.ts";
 
 import { FontOrganize } from "./font/FontOrganize.ts";
 import { FontAnalyze } from "./font/index.ts";
