@@ -29,6 +29,8 @@ FontifyJS({ projectDir: 'my-project' });
 - If you put .otf file the lib can not convert to woff2 (beta)
 
 ## Execute
+
+Most compatible:
 ```bash
 node fontify.js
 ```
