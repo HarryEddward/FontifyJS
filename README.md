@@ -30,6 +30,7 @@ Recommended:
 bun fontify.ts
 ```
 ### What will happen?
+3 temporary folders will be created for the organization, decompression and optimization of the fonts and then the fonts will be saved in **`/public/fonts/fontify`** in different folders for each of the zips to be used.
 
 
 ### Example React Project
