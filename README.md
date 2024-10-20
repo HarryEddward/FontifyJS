@@ -20,6 +20,9 @@ FontifyJS({ projectDir: 'my-project' });
 - Put only in the main directory (`/fontLoader`) the zip files, not in subdirectorys
 - If you put .otf file the lib can not convert to woff2 (beta)
 
+## Execute
+node index.js
+
 ### Example React Project
 ```bash
 .
