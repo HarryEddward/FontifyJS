@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <strong>Use Tailwind with automatic font:</strong>
+  <h3>Use Tailwind with automatic font:</h3>
 </p>
 
 <p align="center">
