@@ -7,7 +7,7 @@
 </p>
 
 <div align="center">
-  <h3>Use Tailwind with automatic font:</h3>
+  <h3>Use Tailwind with Fontify:</h3>
 
   <ul>
     <li>Check the compatible font (.ttf)</li>
