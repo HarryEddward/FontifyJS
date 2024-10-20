@@ -45,7 +45,7 @@ export const configFontifyFonts = ${stringifyConfigTailwindObject};
     public headerConfigFile(): string {
         return `
 /* 
- * Configuración sobre tailwind para las fuentes!
+ * Tailwind's configuration from FontFamily
 */
 `.trim();
     }
