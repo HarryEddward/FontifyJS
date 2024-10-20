@@ -1,0 +1,100 @@
+
+/*
+Thanks for using FonitfyJS here can you manage all of the proccesed fonts for your project, enjoy!
+*/
+@tailwind utilities;
+
+@font-face {
+    font-family: 'AGDASIMA_agdasima_regular';
+    src: url('./public/fonts/fontify/agdasima/agdasima_regular.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'AGDASIMA_agdasima_bold';
+    src: url('./public/fonts/fontify/agdasima/agdasima_bold.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'ROBOTO_roboto_lightitalic';
+    src: url('./public/fonts/fontify/roboto/roboto_lightitalic.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'ROBOTO_roboto_mediumitalic';
+    src: url('./public/fonts/fontify/roboto/roboto_mediumitalic.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'ROBOTO_roboto_regular';
+    src: url('./public/fonts/fontify/roboto/roboto_regular.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'ROBOTO_roboto_thin';
+    src: url('./public/fonts/fontify/roboto/roboto_thin.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'ROBOTO_roboto_italic';
+    src: url('./public/fonts/fontify/roboto/roboto_italic.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'ROBOTO_roboto_bold';
+    src: url('./public/fonts/fontify/roboto/roboto_bold.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'ROBOTO_roboto_thinitalic';
+    src: url('./public/fonts/fontify/roboto/roboto_thinitalic.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'ROBOTO_roboto_blackitalic';
+    src: url('./public/fonts/fontify/roboto/roboto_blackitalic.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'ROBOTO_roboto_bolditalic';
+    src: url('./public/fonts/fontify/roboto/roboto_bolditalic.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'ROBOTO_roboto_black';
+    src: url('./public/fonts/fontify/roboto/roboto_black.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'ROBOTO_roboto_light';
+    src: url('./public/fonts/fontify/roboto/roboto_light.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'ROBOTO_roboto_medium';
+    src: url('./public/fonts/fontify/roboto/roboto_medium.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'AGDASIMA_COPY_agdasima_regular';
+    src: url('./public/fonts/fontify/agdasima_copy/agdasima_regular.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'AGDASIMA_COPY_agdasima_bold';
+    src: url('./public/fonts/fontify/agdasima_copy/agdasima_bold.woff2') format('woff2');
+}

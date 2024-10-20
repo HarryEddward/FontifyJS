@@ -1,62 +1,65 @@
 import type { IFontOrganize, IFontOrganizeData } from './types.ts'
 import fs from 'fs';
 import path from 'path'
+import { FontPath } from './utils/FontPath.ts';
+import { FontFinder } from './utils/FontFinder.ts';
+import { FontTemp } from './utils/FontTemp.ts';
 
 export class FontOrganize implements IFontOrganize {
 
     public data: IFontOrganizeData;
-    public publicPath: string;
-    public loaderFontsPath: string;
-    public arrayFontFiles: string[];
+    public pathResolve: FontPath;
+    //public arrayFontFiles: string[];
     public typesExtFont: string[] = ['.ttf', '.otf'];
 
     constructor(data: IFontOrganizeData) {
         this.data = data;
-        this.publicPath = data.publicPath;
-        this.loaderFontsPath = data.loaderFontsPath;
+        this.pathResolve = new FontPath({ projectDir: data.projectDir });
+        this.moveOptimizedFontsToPublic();
 
-        this.arrayFontFiles = this.obtainFontFilesPath(this.publicPath);
-        console.log(this.arrayFontFiles);
-        this.organizeFontFiles(this.loaderFontsPath, this.arrayFontFiles);
+        const useTemp = new FontTemp(data);
+        useTemp.removeAllTemp();
+        useTemp.removeAllFontTemp();
+        useTemp.removeAllFontOptimizedTemp();
     }
 
     /**
-     * Obtiene todos los archivos de fuentes con las extensiones especificadas en un directorio y sus subdirectorios.
-     * @param dirPath El path del directorio donde buscar archivos.
-     * @returns Un array con las rutas de los archivos de fuentes.
-     */
-    public obtainFontFilesPath(dirPath: string): string[] {
-        const fontFiles: string[] = [];
+    * Función para mover todos los archivos listados por FontFinder a un directorio destino.
+    * Usa la lógica recursiva de FontFinder para encontrar todos los archivos y luego los mueve.
+    */
+   private moveAllFiles(sourceDir: string, targetDir: string): void {
+       // Asegúrate de que el directorio de destino existe
+       if (!fs.existsSync(targetDir)) {
+           fs.mkdirSync(targetDir, { recursive: true });
+       }
+       // Obtener todos los archivos en el directorio fuente (incluyendo subdirectorios)
+       const filesToMove = FontFinder.getAllFilesInFolder(sourceDir);
+   
+       for (const file of filesToMove) {
+           const relativePath = path.relative(sourceDir, file); // Obtener la ruta relativa del archivo
+           const targetPath = path.join(targetDir, relativePath); // Ruta destino
+           
+           // Crear los directorios necesarios en el destino
+           const targetFolder = path.dirname(targetPath);
+           if (!fs.existsSync(targetFolder)) {
+               fs.mkdirSync(targetFolder, { recursive: true });
+           }
+   
+           // Mover el archivo
+           fs.renameSync(file, targetPath);
+           console.log(`Moved file: ${file} -> ${targetPath}`);
+       }
+   
+       console.log('Todos los archivos y carpetas fueron movidos exitosamente.');
+   }
 
-        // Lee todos los archivos y subdirectorios en el directorio
-        const filesAndDirs = fs.readdirSync(dirPath);
+    public moveOptimizedFontsToPublic(): void {
+        try {  
+            this.moveAllFiles(this.pathResolve.optimizedFontsTempPath(), path.join(this.pathResolve.finalPublicFontPath()));
+        } catch (e) {
 
-        filesAndDirs.forEach(fileOrDir => {
-            const fullPath = path.join(dirPath, fileOrDir);
-            const stat = fs.statSync(fullPath);
-
-            // Si es un directorio, buscar recursivamente
-            if (stat.isDirectory()) {
-                const subDirFiles = this.obtainFontFilesPath(fullPath);
-                fontFiles.push(...subDirFiles); // Agrega los archivos encontrados en el subdirectorio
-            } else {
-                // Si es un archivo, verificar la extensión
-                const ext = path.extname(fileOrDir).toLowerCase(); // Obtiene la extensión del archivo
-                if (this.typesExtFont.includes(ext)) {
-                    fontFiles.push(fullPath); // Guarda la ruta completa del archivo
-                }
-            }
-        });
-
-        return fontFiles;
-    }
-
-    public organizeFontFiles(pathFontFiles: string, arrayFontFiles: string[]): void {
-        const temporalDir: string = path.join(path.dirname(pathFontFiles), ".temp.fontify.fonts");
-        
-        // Crear un directorio temporal si no existe
-        if (!fs.existsSync(temporalDir)) {
-            fs.mkdirSync(temporalDir, { recursive: true });
         }
     }
+
+    
 }

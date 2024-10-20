@@ -1,25 +1,29 @@
 // src/font/FontAnalyze.ts
 import { FontInit } from './FontInit';
-import type { IFontAnalyze, IFontData } from './types';
+import type { IFontAnalyze, IFontInitData } from './types';
 
 import fs from 'fs';
 import path from 'path';
 
-export class FontAnalyze<T extends IFontData> extends FontInit implements IFontAnalyze {
-    constructor(data: IFontData) {
+export class FontAnalyze<T extends IFontInitData> extends FontInit implements IFontAnalyze {
+    
+    
+
+    constructor(data: IFontInitData) {
         super(data);
         this.analyzeZipFiles(); // Ejecuta el análisis al instanciar
     };
 
     public analyzeZipFiles(): void {
         try {
-            const directory = this.folderWorkPath || this.nameReactProject;
+            const fontLoaderPath = path.join(this.folderWorkPath, 'fontLoader');
 
-            if (!directory) {
+            if (!this.folderWorkPath) {
                 throw new Error('No se ha especificado un directorio válido.');
             }
 
-            this.checkAllFilesAreZip(directory);
+            const res = this.checkAllFilesAreZip(fontLoaderPath);
+            console.log(res);
 
         } catch (error: any) {
             throw new Error(`Error while analyzing zip files: ${error.message}`);

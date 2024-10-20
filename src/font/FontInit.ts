@@ -1,31 +1,31 @@
 // src/font/FontInit.ts
 
-import type { IFontInit, IFontData } from './types';
-import {join} from 'path';
+import type { IFontInit, IFontInitData } from './types';
+import path from 'path';
 
 export class FontInit implements IFontInit {
     public typesExtFont: string[] = ['.ttf', '.otf'];
     public arrayFilesNames: string[] = [];
     public folderWorkPath: string = '';
-    public nameReactProject: string | undefined;
-    private data: IFontData;
+    public projectDir: string | undefined;
+    private data: IFontInitData;
 
-    constructor(data: IFontData) {
+    constructor(data: IFontInitData) {
         this.data = data;
         this.initializeVars();
-        //console.log(this.folderWorkPath);
+        console.log(this.folderWorkPath);
     }
 
     public initializeVars(): void {
         // Utilizar la estructura de IFontData para asignar solo las variables que existen
         if ('folderWorkPath' in this.data) {
             // Si folderWorkPath está definido, se usa directamente
-            this.folderWorkPath = '';
-            this.nameReactProject = ''; // nameReactProject no se usa, así que se asigna vacío
-        } else if ('nameReactProject' in this.data) {
+            this.folderWorkPath = this.folderWorkPath || '';
+            this.projectDir = ''; // nameReactProject no se usa, así que se asigna vacío
+        } else if ('projectDir' in this.data) {
             // Si folderWorkPath no está definido, se espera que nameReactProject esté presente
-            this.nameReactProject = this.data.nameReactProject; // Se asigna directamente
-            this.folderWorkPath = join(process.cwd(), this.nameReactProject, 'fontLoader'); // Se genera la ruta
+            this.projectDir = this.data.projectDir; // Se asigna directamente
+            this.folderWorkPath = path.join(process.cwd(), this.projectDir); // Se genera la ruta
         }
     }
 }
