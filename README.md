@@ -22,8 +22,15 @@ FontifyJS({ projectDir: 'my-project' });
 
 ## Execute
 ```bash
-node index.js
+node fontify.js
 ```
+
+Recommended:
+```bash
+bun fontify.ts
+```
+### What will happen?
+
 
 ### Example React Project
 ```bash
