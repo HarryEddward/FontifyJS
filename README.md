@@ -129,4 +129,6 @@ export default {
     ├── tailwind.config.js
     └── vite.config.js
 ```
-- Si hay archivos fuentes repetidos, internamente no usara los archivos repetidos en diferentes carpetas por evitar errores de compatibilidad entre diferentes entre nombres.
+
+## ⚠️ Things to keep in mind
+- If there are repeated source files, internally it will not use the repeated files in different folders to avoid compatibility errors between different names.
