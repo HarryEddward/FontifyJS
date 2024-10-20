@@ -51,7 +51,7 @@ When you want to use Tailwind, Fontify provides two files. The css file of all c
     └── fontifyTailwind.js
 ```
 
-`/{your_project}/fontify.css`
+`/{your_project}/fontify.css (EXAMPLE)`
 ```css
 /*
 Thanks for using FonitfyJS here can you manage all of the proccesed fonts for your project, enjoy!
@@ -64,7 +64,7 @@ Thanks for using FonitfyJS here can you manage all of the proccesed fonts for yo
 }, ...
 ```
 
-`/{your_project}/fontifyTailwind.js`
+`/{your_project}/fontifyTailwind.js (EXAMPLE)`
 ```javascript
 /* 
  * Tailwind's configuration from FontFamily
@@ -80,7 +80,7 @@ export const configFontifyFonts = {
   ], ...
 ```
 
-`tailwind.config.js`
+`tailwind.config.js (REAL CONFIGURATION)`
 ```javascript
 import { configFontifyFonts } from './fontifyTailwind'; /*👈*/
 
