@@ -66,6 +66,7 @@ export class CssFile implements ICssFile {
 /*
 Thanks for using FonitfyJS here can you manage all of the proccesed fonts for your project, enjoy!
 */
+@tailwind utilities;
 
 `
     }
