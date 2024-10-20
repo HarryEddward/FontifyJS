@@ -8,7 +8,6 @@
 
 <div align="center">
     <h3>Use Tailwind with Fontify:</h3>
-
     <p>Check the compatible font (.ttf)</p>
     <p>Extract Font-Zip Files</p>
     <p>Organize with folders</p>
