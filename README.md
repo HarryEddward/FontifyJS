@@ -7,14 +7,12 @@
 </p>
 
 <div align="center">
-  <h3>Use Tailwind with Fontify:</h3>
+    <h3>Use Tailwind with Fontify:</h3>
 
-  <ul>
-    <li>Check the compatible font (.ttf)</li>
-    <li>Extract Font-Zip Files</li>
-    <li>Organize with folders</li>
-    <li>Optimize all of your fonts in .woff2</li>
-  </ul>
+    <p>Check the compatible font (.ttf)</p>
+    <p>Extract Font-Zip Files</p>
+    <p>Organize with folders</p>
+    <p>Optimize all of your fonts in .woff2</p>
 </div>
 
 ## Usage
