@@ -131,4 +131,4 @@ export default {
 ```
 
 ## ⚠️ Things to keep in mind
-- If there are repeated source files, internally it will not use the repeated files in different folders to avoid compatibility errors between different names.
+- If there are repeated source files, internally it will  use the repeated files in different folders to avoid compatibility errors between different names.
