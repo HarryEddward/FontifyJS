@@ -99,9 +99,33 @@ export default {
   },
   plugins: [],
 }
+```
 
+### Example React Usage
+
+When execute Fontify all of your font files are organized
+in custom folder in `/public/font/fontify/...`.
+
+### Tailwind
+
+If you want to access your fonts through tawilwind, its syntax would be to add to the class: **font-**. And then the name of the zip where the font comes from is added in **capital letters of the entire word**, plus a **_** and finally the **name of the file** that is in the public path.
+
+`/{your_project}/src/App.jsx`
+```javascript
+import '../fontify.css';
+...
+
+export function App() {
+
+    /* How to acces the font? */
+    return(
+        <div className="font-NAMEFOLDER_namefont">
+        </div>
+    )
+}
 
 ```
+
 
 ### Example React Project
 ```bash
