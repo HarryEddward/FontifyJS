@@ -4,11 +4,17 @@
 
 <p align="center">
   <img src="./.github/media/img/FY.png" alt="Descripción de la imagen" width="300"/>
-  Use tailwind with autoamtic font:
+</p>
+
+<p align="center">
+  <strong>Use Tailwind with automatic font:</strong>
+</p>
+
+<p align="center">
   <ul>
     <li>Check the compatible font (.ttf)</li>
-    <li>Extracter Font-Zip Files</li>
-    <li>Organizate with folders</li>
+    <li>Extract Font-Zip Files</li>
+    <li>Organize with folders</li>
     <li>Optimize all of your fonts in .woff2</li>
   </ul>
 </p>
