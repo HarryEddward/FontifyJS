@@ -127,6 +127,36 @@ export function App() {
 
 ```
 
+## Example Without Tailwind (Pure CSS)
+
+
+`index.html`
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Font Example</title>
+  
+  <!-- Vincula tu archivo CSS con la fuente -->
+  <link href="./fontify.css" rel="stylesheet">
+
+  <style>
+    /* Aplica la fuente en todo el cuerpo */
+    body {
+      font-family: 'AGDASIMA_agdasima_regular', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Custom Font Example with AGDASIMA</h1>
+  <p>This paragraph is using the 'AGDASIMA_agdasima_regular' font.</p>
+</body>
+</html>
+
+```
+
 
 ### Example React Project
 ```bash
