@@ -148,7 +148,7 @@ export function App() {
     │   ├── fonts
     │   │   └── fontify
     │   │       ├── agdasima
-    │   │       │   ├── agdasima_bold.woff2
+    │   │       │   ├── agdasima_bold.woff2     /*👈 AGDASIMA_agdasima_bold*/
     │   │       │   └── agdasima_regular.woff2
     │   │       ├── agdasima_copy
     │   │       │   ├── agdasima_bold.woff2
