@@ -10,7 +10,7 @@
     <h3>Use Tailwind with Fontify:</h3>
     <p>🔍 Check the compatible font (.ttf)</p>
     <p>🗂️ Extract Font-Zip Files</p>
-    <p>🔄 Optimize all of your fonts in .woff2</p>
+    <p>🔄 Optimize all of your fonts to .woff2</p>
     <p>📂 Organize in separate folders</p>
     <p>✅ Ready for use it without a configuration</p>
 </div>
