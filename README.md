@@ -23,27 +23,27 @@ import { FontifyJS } from "../src";
 FontifyJS({ projectDir: 'my-project' });
 ```
 
-### Steps before execute
+### 🧯 Steps before execute
 - Put all of your zip-font files inside of `/{your_project}/fontLoader`
 - Do not put other type of file that is not a .zip file inside of fontLoader
 - Put only in the main directory (`/fontLoader`) the zip files, not in subdirectorys
 - If you put .otf file the lib can not convert to woff2 (beta)
 
-## Execute
+## 🔥 Execute
 
 Most compatible:
 ```bash
 node fontify.js
 ```
 
-Recommended (Native Version):
+Recommended (Typed Version):
 ```bash
 bun fontify.ts
 ```
 ### What will happen?
 3 temporary folders will be created for the organization, decompression and optimization of the fonts in the main folder of the project and then the fonts will be saved in **`/public/fonts/fontify`** in different folders for each of the zips to be used.
 
-## Manual Configuration
+## 🗒️ Manual Configuration
 When you want to use Tailwind, Fontify provides two files. The css file of all configurate fonts of all fonts (.ttf) in the all zips to .woff2, and create a tailwind configure file for configure in `tailwind.config.js` the **fontFamily**. And inside exports an object to use directly to the tailwind file. Examples:
 
 ```bash
@@ -83,7 +83,7 @@ export const configFontifyFonts = {
   ], ...
 ```
 
-`tailwind.config.js (REAL CONFIGURATION)`
+`tailwind.config.js (REAL CONFIGURATION)` 👁️
 ```javascript
 import { configFontifyFonts } from './fontifyTailwind'; /*👈*/
 
@@ -102,7 +102,7 @@ export default {
 }
 ```
 
-### Example React Usage
+### Example React Usage 👁️
 
 When execute Fontify all of your font files are organized
 in custom folder in `/public/font/fontify/...`.
@@ -157,7 +157,7 @@ export function App() {
 ```
 
 
-## Example Without Tailwind (Pure CSS)
+## Example Without Tailwind (Pure CSS) 👁️
 
 `index.html`
 ```html
