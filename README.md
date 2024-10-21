@@ -130,6 +130,7 @@ export function App() {
 ### Example React Project
 ```bash
 .
+├── fontify.js
 └── my-project
     ├── README.md
     ├── eslint.config.js
@@ -144,6 +145,27 @@ export function App() {
     ├── package.json
     ├── postcss.config.js
     ├── public
+    │   ├── fonts
+    │   │   └── fontify
+    │   │       ├── agdasima
+    │   │       │   ├── agdasima_bold.woff2
+    │   │       │   └── agdasima_regular.woff2
+    │   │       ├── agdasima_copy
+    │   │       │   ├── agdasima_bold.woff2
+    │   │       │   └── agdasima_regular.woff2
+    │   │       └── roboto
+    │   │           ├── roboto_black.woff2
+    │   │           ├── roboto_blackitalic.woff2
+    │   │           ├── roboto_bold.woff2
+    │   │           ├── roboto_bolditalic.woff2
+    │   │           ├── roboto_italic.woff2
+    │   │           ├── roboto_light.woff2
+    │   │           ├── roboto_lightitalic.woff2
+    │   │           ├── roboto_medium.woff2
+    │   │           ├── roboto_mediumitalic.woff2
+    │   │           ├── roboto_regular.woff2
+    │   │           ├── roboto_thin.woff2
+    │   │           └── roboto_thinitalic.woff2
     │   └── vite.svg
     ├── src
     │   ├── App.css
