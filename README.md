@@ -62,7 +62,7 @@ Thanks for using FonitfyJS here can you manage all of the proccesed fonts for yo
 @tailwind utilities;
 
 @font-face {
-    font-family: 'AGDASIMA_agdasima_regular'; /*👈 (NameFolder) + (_) + (NameFont)*/
+    font-family: 'AGDASIMA_agdasima_regular'; /*👁️ (NameFolder) + (_) + (NameFont)*/
     src: url('./public/fonts/fontify/agdasima/agdasima_regular.woff2') format('woff2');
 }, ...
 ```
@@ -73,7 +73,7 @@ Thanks for using FonitfyJS here can you manage all of the proccesed fonts for yo
  * Tailwind's configuration from FontFamily
 */
 export const configFontifyFonts = {
-  "AGDASIMA_agdasima_regular": [ /*👈 (NameFolder) + (_) + (NameFont)*/
+  "AGDASIMA_agdasima_regular": [ /*👁️ (NameFolder) + (_) + (NameFont)*/
     "AGDASIMA_agdasima_regular", 
     "sans-serif"
   ],
@@ -85,7 +85,7 @@ export const configFontifyFonts = {
 
 `tailwind.config.js (REAL CONFIGURATION)` 👁️
 ```javascript
-import { configFontifyFonts } from './fontifyTailwind'; /*👈*/
+import { configFontifyFonts } from './fontifyTailwind'; /*👈 IMPORT*/
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -95,7 +95,7 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily: configFontifyFonts /*👈*/
+      fontFamily: configFontifyFonts /*👈 ADD OBJECT IMPORTED*/
     },
   },
   plugins: [],
