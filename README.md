@@ -148,14 +148,14 @@ export function App() {
     │   ├── fonts
     │   │   └── fontify
     │   │       ├── agdasima
-    │   │       │   ├── agdasima_bold.woff2     /*👈 AGDASIMA_agdasima_bold*/
-    │   │       │   └── agdasima_regular.woff2
+    │   │       │   ├── agdasima_bold.woff2     #👈 AGDASIMA_agdasima_bold
+    │   │       │   └── agdasima_regular.woff2  #👈 AGDASIMA_agdasima_regular
     │   │       ├── agdasima_copy
-    │   │       │   ├── agdasima_bold.woff2
-    │   │       │   └── agdasima_regular.woff2
+    │   │       │   ├── agdasima_bold.woff2     #👈 AGDASIMA_COPY_agdasima_bold
+    │   │       │   └── agdasima_regular.woff2  #👈 AGDASIMA_COPY_agdasima_regular
     │   │       └── roboto
-    │   │           ├── roboto_black.woff2
-    │   │           ├── roboto_blackitalic.woff2
+    │   │           ├── roboto_black.woff2          #👈 ROBOTO_roboto_black
+    │   │           ├── roboto_blackitalic.woff2    #👈 ROBOTO_roboto_blackitalic
     │   │           ├── roboto_bold.woff2
     │   │           ├── roboto_bolditalic.woff2
     │   │           ├── roboto_italic.woff2
