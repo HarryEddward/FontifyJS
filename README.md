@@ -15,12 +15,17 @@
     <p>✅ Ready for use it without a configuration</p>
 </div>
 
+# Most Important
+1. [Usage](#‼️-Usage-‼️)
+2. [](#sección-1)
+3. [Sección 2](#sección-2)
+
 ## ‼️ Usage ‼️
 - ✅ ZIP with disorganized and unoptimized sources, is not a problem with Fontify!
 
 `/fontify.js/{your_project}`
 ```typescript
-import { FontifyJS } from "../src";
+import { FontifyJS } from "fontify/index";
 
 FontifyJS({ projectDir: 'my-project' });
 ```

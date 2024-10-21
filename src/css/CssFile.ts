@@ -1,10 +1,10 @@
-import { FontifyPath } from "../utils/FontifyPath";
+import { FontifyPath } from "../utils/FontifyPath.js";
 import type { ICssPathData } from "./utils/types";
 import type { ICssFile } from "./types";
 import fs from 'fs';
 import path, { extname } from 'path';
-import { FontFinder } from "../font/utils/FontFinder";
-import { ignoreFileExtensions } from "../contants";
+import { FontFinder } from "../font/utils/FontFinder.js";
+import { ignoreFileExtensions } from "../contants.js";
 
 export class CssFile implements ICssFile {
     public pathResolve: FontifyPath;

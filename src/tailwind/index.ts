@@ -1,6 +1,6 @@
 // src/tailwind/index.ts
-import { TailwindConfig } from "./TailwindConfig";
-import { TailwindInit } from "./TailwindInit";
+import { TailwindConfig } from "./TailwindConfig.js";
+import { TailwindInit } from "./TailwindInit.js";
 import type { ITailwind } from "./types";
 
 export class Tailwind implements ITailwind {

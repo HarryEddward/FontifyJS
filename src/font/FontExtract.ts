@@ -1,13 +1,13 @@
 // src/font/FontExtract.ts
 
-import { FontInit } from './FontInit';
+import { FontInit } from './FontInit.js';
 import type { IFontExtract, IFontInitData, IFontExtractData } from './types';
 import path from 'path';
 import fs from 'fs'; // Usamos fs en lugar de fs/promises para manejar operaciones sincrónicas
 import AdmZip from 'adm-zip';
 import { FontPath } from './utils';
-import { FontFinder } from './utils/FontFinder';
-import { typesExtFont } from '../contants';
+import { FontFinder } from './utils/FontFinder.js';
+import { typesExtFont } from '../contants.js';
 
 /**
  * In this class we do not use the main parent (FontInit), in this case is for extract all

@@ -1,7 +1,7 @@
 // src/font/utils/FontTemp.ts
 
 
-import { FontPath } from "./FontPath";
+import { FontPath } from "./FontPath.js";
 import type { IFontTemp, IFontPathData } from "./types";
 import fs from 'fs'; // Asegúrate de importar fs/promises
 

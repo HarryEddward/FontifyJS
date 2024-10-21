@@ -1,11 +1,11 @@
 // src/Fontify.ts
 
-import { Font } from './font/index.ts';
-import { Css } from './css/index.ts';
-import type { IFontInitData } from './font/types.ts';
+import { Font } from './font/index.js';
+import { Css } from './css/index.js';
+import type { IFontInitData } from './font/types';
 
-import type { IFontify } from './type.ts';
-import { Tailwind } from './tailwind/index.ts';
+import type { IFontify } from './type.js';
+import { Tailwind } from './tailwind/index.js';
 export class Fontify implements IFontify {
 
 

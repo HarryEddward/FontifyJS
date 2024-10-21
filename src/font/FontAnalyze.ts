@@ -1,5 +1,5 @@
 // src/font/FontAnalyze.ts
-import { FontInit } from './FontInit';
+import { FontInit } from './FontInit.js';
 import type { IFontAnalyze, IFontInitData } from './types';
 
 import fs from 'fs';

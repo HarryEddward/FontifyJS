@@ -1,6 +1,6 @@
 // src/font/utils/types.ts
 
-import type { FontPath } from "./FontPath";
+import type { FontPath } from "./FontPath.js";
 
 export interface IFontPath {
     folderBackspace( levels: number, filePath?: string ): string;
@@ -30,5 +30,13 @@ export interface IFontFinder {
 }
 
 export interface IFontFinderData {
+
+}
+
+export interface IFontLog {
+    
+}
+
+export interface IFontLogData {
 
 }

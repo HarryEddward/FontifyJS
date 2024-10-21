@@ -1,4 +1,4 @@
-// src/types/globals.d.ts
+// /types/globals.d.ts
 
 declare global {
     export type InitialData = 
@@ -17,4 +17,4 @@ declare global {
     export interface PathData {projectDir: string;}
 }
 
-export {}
+export {};

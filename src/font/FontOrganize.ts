@@ -1,9 +1,9 @@
-import type { IFontOrganize, IFontOrganizeData } from './types.ts'
+import type { IFontOrganize, IFontOrganizeData } from './types'
 import fs from 'fs';
 import path from 'path'
-import { FontPath } from './utils/FontPath.ts';
-import { FontFinder } from './utils/FontFinder.ts';
-import { FontTemp } from './utils/FontTemp.ts';
+import { FontPath } from './utils/FontPath.js';
+import { FontFinder } from './utils/FontFinder.js';
+import { FontTemp } from './utils/FontTemp.js';
 
 export class FontOrganize implements IFontOrganize {
 

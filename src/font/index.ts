@@ -1,18 +1,12 @@
 // src/font/index.ts
 
-export { FontAnalyze } from "./FontAnalyze";
-export { FontExtract } from "./FontExtract";
-export { FontOptimize } from "./FontOptimize";
-
-import type { IFontify, IFontifyData } from '../type.ts';
-
-import { FontOrganize } from "./FontOrganize.ts";
-import { FontAnalyze } from "./index.ts";
-import { FontExtract } from "./index.ts";
-import { FontOptimize } from "./index.ts";
-import { FontPath } from './utils/FontPath.ts';
-
-import type { IFontInitData, IFontExtractData, IFont, IFontData } from "./types.ts";
+import type { IFontify, IFontifyData } from '../type';
+import { FontAnalyze } from './FontAnalyze.js';
+import { FontExtract } from './FontExtract.js';
+import { FontOptimize } from './FontOptimize.js';
+import { FontOrganize } from './FontOrganize.js';
+import type { IFontInitData, IFontExtractData, IFont, IFontData } from "./types";
+import { FontPath } from './utils/FontPath.js';
 
 export class Font implements IFont {
 

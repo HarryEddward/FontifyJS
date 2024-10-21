@@ -1,7 +1,7 @@
 
-import { ignoreFileExtensions } from "../contants";
-import { FontFinder } from "../font/utils/FontFinder";
-import { FontifyPath } from "../utils/FontifyPath";
+import { ignoreFileExtensions } from "../contants.js";
+import { FontFinder } from "../font/utils/FontFinder.js";
+import { FontifyPath } from "../utils/FontifyPath.js";
 import type { ITailwindConfig, ITailwindConfigData } from "./types";
 import fs from 'fs';
 import path from 'path';

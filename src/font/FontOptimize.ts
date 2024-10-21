@@ -2,11 +2,11 @@
 
 import type { IFontOptimize, IFontOptimizeData } from './types';
 import { FontPath } from './utils';
-import { FontFinder } from './utils/FontFinder';
+import { FontFinder } from './utils/FontFinder.js';
 import path from 'path';
 import fs from 'fs';
 import fsp from 'fs/promises';
-import { typesExtFont } from '../contants';
+import { typesExtFont } from '../contants.js';
 import ttf2woff2 from 'ttf2woff2'; // Importar ttf2woff2
 
 export class FontOptimize implements IFontOptimize {

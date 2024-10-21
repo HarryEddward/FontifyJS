@@ -2,8 +2,8 @@
 import type { ICss } from "./types";
 import fs from 'fs';
 import path from 'path';
-import { CssInit } from "./CssInit";
-import { CssFile } from "./CssFile";
+import { CssInit } from "./CssInit.js";
+import { CssFile } from "./CssFile.js";
 
 export class Css implements ICss {
 
@@ -12,5 +12,5 @@ export class Css implements ICss {
         const analyze = new CssInit(data);
         new CssFile({ projectDir: analyze.folderWorkPath });
     };
-    
+
 };

@@ -1,7 +1,7 @@
 // src/font/types.ts
 
 import { FontPath } from "./utils";
-import type { FontTemp } from "./utils/FontTemp";
+import type { FontTemp } from "./utils/FontTemp.js";
 import type { IFontPath, IFontPathData } from "./utils/types";
 
 export interface IFont {
@@ -49,9 +49,7 @@ export interface IFontExtractData {
 
 export interface IFontOrganize {
     data: IFontOrganizeData;
-    loaderFontsPath: string;
     typesExtFont: string[];
-    useTemp: FontTemp;
     moveOptimizedFontsToPublic(): void;
 }
 

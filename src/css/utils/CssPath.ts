@@ -8,8 +8,8 @@ import path from 'path';
  */
 export class CssPath implements ICssPath {
 
-    public data: ICssPathData;
     public projectDir: string;
+    public data: ICssPathData;
 
     constructor (data: ICssPathData) {
         this.data = data;
