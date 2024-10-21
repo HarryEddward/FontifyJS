@@ -17,6 +17,7 @@
 
 ## ‼️ Usage ‼️
 ✅ ZIP with disorganized and unoptimized sources, is not a problem with Fontify!
+
 `/fontify.js/{your_project}`
 ```typescript
 import { FontifyJS } from "../src";
