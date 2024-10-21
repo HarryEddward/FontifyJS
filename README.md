@@ -15,7 +15,7 @@
     <p>✅ Ready for use it without a configuration</p>
 </div>
 
-## Usage
+## ‼️ Usage ‼️
 `/fontify.js/{your_project}`
 ```typescript
 import { FontifyJS } from "../src";
