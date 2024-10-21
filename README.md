@@ -107,7 +107,7 @@ export default {
 When execute Fontify all of your font files are organized
 in custom folder in `/public/font/fontify/...`.
 
-### Tailwind
+### Tailwind ‼️
 
 If you want to access your fonts through tawilwind, its syntax would be to add to the class: **font-**. And then the name of the zip where the font comes from is added in **capital letters of the entire word**, plus a **_** and finally the **name of the file** that is in the public path.
 
