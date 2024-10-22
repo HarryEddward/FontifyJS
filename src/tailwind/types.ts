@@ -1,5 +1,7 @@
 // src/tailwind/types.ts
 
+import type { FontifyPath } from "../utils/FontifyPath";
+
 export interface ITailwind {
 
 }
@@ -21,7 +23,10 @@ export interface ITailwindInitData {
 }
 
 export interface ITailwindConfig {
-
+    pathResolve: FontifyPath;
+    configTailwindObject: { [key: string]: string[] };
+    makeConfigTailwindFile(fileName: string): void;
+    headerConfigFile(): string;
 }
 
 export interface ITailwindConfigData extends PathData {

@@ -3,7 +3,7 @@
 
 
 <p align="center">
-  <img src="./.github/media/img/FY.png" alt="Descripción de la imagen" width="300"/>
+  <img src="https://raw.githubusercontent.com/HarryEddward/FontifyJS/main/.github/media/img/FY.png" alt="Descripción de la imagen" width="300"/>
 </p>
 
 <div align="center">
@@ -23,6 +23,9 @@
    - [Tailwind](###tailwind-‼️)
 3. [Example Without Tailwind (Pure CSS)](#example-without-tailwind-pure-css)
 4. [⚠️ Things to keep in mind](#⚠️-things-to-keep-in-mind)
+
+## IMPORTANT
+Do not use the Node/Deno runtime, for more compatibility use Bun
 
 ## ‼️ Usage ‼️
 - ✅ ZIP with disorganized and unoptimized sources, is not a problem with Fontify!
@@ -51,7 +54,7 @@ FontifyJS({ projectDir: 'my-project' });
 
 Most compatible:
 ```bash
-node fontify.js
+bun fontify.js
 ```
 
 Recommended (Typed Version):

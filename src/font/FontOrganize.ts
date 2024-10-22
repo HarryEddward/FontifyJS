@@ -13,12 +13,6 @@ export class FontOrganize implements IFontOrganize {
     //public arrayFontFiles: string[];
     public typesExtFont: string[] = ['.ttf', '.otf', '.woff'];
 
-    private static logger = class {
-        static moveAllFiles(): void {
-          //console.log('Moving files...');
-        }
-    }
-
     constructor(data: IFontOrganizeData) {
         logger.start()
         this.data = data;
@@ -66,7 +60,6 @@ export class FontOrganize implements IFontOrganize {
 
     public moveOptimizedFontsToPublic(): void {
         try {
-            FontOrganize.logger.moveAllFiles()
             this.moveAllFiles(this.pathResolve.optimizedFontsTempPath(), path.join(this.pathResolve.finalPublicFontPath()));
         } catch (e) {
             console.error(e);

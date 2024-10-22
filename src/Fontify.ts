@@ -8,7 +8,7 @@ import ora from 'ora';
 
 export class Fontify implements IFontify {
 
-    public data: InitialData;
+    private data: InitialData;
 
     private constructor(data: InitialData) {
         this.data = data;

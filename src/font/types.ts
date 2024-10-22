@@ -1,5 +1,6 @@
 // src/font/types.ts
 
+import type { FontOptimize } from "./FontOptimize.js";
 import { FontPath } from "./utils/FontPath.js";
 import type { FontTemp } from "./utils/FontTemp.js";
 import type { IFontPath, IFontPathData } from "./utils/types";
@@ -49,6 +50,7 @@ export interface IFontExtractData {
 
 export interface IFontOrganize {
     data: IFontOrganizeData;
+    pathResolve: FontPath;
     typesExtFont: string[];
     moveOptimizedFontsToPublic(): void;
 }
@@ -61,18 +63,11 @@ export interface IFontOptimize {
     data: IFontOptimizeData;  // Datos de configuración para la optimización de fuentes
     pathResolve: FontPath;    // Instancia para resolver rutas del proyecto
     typesExtFont: string[];   // Tipos de extensiones de fuentes soportadas
-
-    /**
-     * Método para renombrar archivos de fuentes, garantizando compatibilidad.
-     * Renombra los archivos usando caracteres en minúsculas y reemplazando espacios por guiones bajos.
-     */
     renameCompatibleNameFiles(): void;
+    optimizeFontsToWoff2(): Promise<void>;
+    getFontType(filePath: string): AllowedFontExt;
+    convertToWoff2(inputPath: string, outputPath: string): Promise<void>;
 
-    /**
-     * Método para convertir archivos de fuentes TTF a WOFF2.
-     * Procesa los archivos de manera asíncrona, creando las versiones optimizadas de las fuentes.
-     */
-    optimizeFontsToWoff2(): void;
 }
 
 export interface IFontOptimizeData extends IFontPathData {
