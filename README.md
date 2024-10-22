@@ -1,5 +1,5 @@
 # FontifyJS
-**Forget to optimize a large number of fonts** and imported automatically in React/JSProject and use it for Tailwind
+**Forget to optimize a large number of fonts** and imported automatically in React/JSProject and use it for Tailwind or directly to use it with pure .css
 
 
 <p align="center">
@@ -229,3 +229,10 @@ export function App() {
 
 ## ⚠️ Things to keep in mind
 - If there are repeated source files, internally it will  use the repeated files in different folders to avoid compatibility errors between different names.
+
+
+## Things to improve
+- Manage more better the logs
+- Convert the .otf to .ttf and next to optimize all fonts with .woff2
+- Add to my github profile the project
+- Add more keywords relationate to the lib

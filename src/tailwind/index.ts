@@ -7,7 +7,7 @@ export class Tailwind implements ITailwind {
 
     constructor(data: InitialData) {
         const analyzer = new TailwindInit(data);
-        console.log('pass here')
+        //console.log('pass here')
         new TailwindConfig({ projectDir: analyzer.folderWorkPath });
 
     }
