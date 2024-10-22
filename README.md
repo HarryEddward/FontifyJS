@@ -8,7 +8,7 @@
 
 <div align="center">
     <h3>Use Tailwind with Fontify:</h3>
-    <p>🔍 Check the compatible font (.ttf, .otf, .woff)</p>
+    <p>🔍 Check the compatible fonts (.ttf, .otf, .woff)</p>
     <p>🗂️ Extract Font-Zip Files</p>
     <p>🔄 Optimize all of your fonts to .woff2</p>
     <p>📂 Organize in separate folders</p>
