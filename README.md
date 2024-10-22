@@ -29,7 +29,15 @@
 
 `/fontify.js/{your_project}`
 ```typescript
-import { FontifyJS } from "fontify/index";
+import { FontifyJS } from "fontifyjs";
+
+FontifyJS({ projectDir: 'my-project' });
+```
+
+### Native Typescript
+`/fontify.ts/{your_project}`
+```typescript
+import { FontifyJS } from "fontifyjs/ts";
 
 FontifyJS({ projectDir: 'my-project' });
 ```
