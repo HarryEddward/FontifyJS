@@ -20,7 +20,7 @@
 2. [🗒️ Manual Configuration 🗒️](#🗒️-manual-configuration-🗒️)
    - [Steps before execute](#🧯-steps-before-execute)
    - [What will happen?](#what-will-happen)
-   - [Tailwind](#tailwind-‼️)
+   - [Tailwind](###tailwind-‼️)
 3. [Example Without Tailwind (Pure CSS)](#example-without-tailwind-pure-css)
 4. [⚠️ Things to keep in mind](#⚠️-things-to-keep-in-mind)
 
