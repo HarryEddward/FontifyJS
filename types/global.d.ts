@@ -14,7 +14,9 @@ declare global {
             ? never 
             : T;
     
-    export interface PathData {projectDir: string;}
+    export interface PathData {projectDir: string;};
+    export type AllowedFontExt = 'ttf' | 'otf' | 'woff';
+
 }
 
 export {};

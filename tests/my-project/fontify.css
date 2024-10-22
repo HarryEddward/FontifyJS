@@ -29,6 +29,24 @@ Thanks for using FonitfyJS here can you manage all of the proccesed fonts for yo
 
 
 @font-face {
+    font-family: 'ARCHIVO_agdasima_bold_otf';
+    src: url('./public/fonts/fontify/archivo/agdasima_bold_otf.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'ARCHIVO_agdasima_bold_ttf';
+    src: url('./public/fonts/fontify/archivo/agdasima_bold_ttf.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'ARCHIVO_agdasima_bold_woff';
+    src: url('./public/fonts/fontify/archivo/agdasima_bold_woff.woff2') format('woff2');
+}
+
+
+@font-face {
     font-family: 'ROBOTO_roboto_black';
     src: url('./public/fonts/fontify/roboto/roboto_black.woff2') format('woff2');
 }

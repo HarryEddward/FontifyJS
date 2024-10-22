@@ -33,10 +33,3 @@ export interface IFontFinderData {
 
 }
 
-export interface IFontLog {
-    
-}
-
-export interface IFontLogData {
-
-}

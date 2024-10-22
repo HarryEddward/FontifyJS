@@ -18,6 +18,18 @@ export const configFontifyFonts = {
     "AGDASIMA_COPY_agdasima_regular",
     "sans-serif"
   ],
+  "ARCHIVO_agdasima_bold_otf": [
+    "ARCHIVO_agdasima_bold_otf",
+    "sans-serif"
+  ],
+  "ARCHIVO_agdasima_bold_ttf": [
+    "ARCHIVO_agdasima_bold_ttf",
+    "sans-serif"
+  ],
+  "ARCHIVO_agdasima_bold_woff": [
+    "ARCHIVO_agdasima_bold_woff",
+    "sans-serif"
+  ],
   "ROBOTO_roboto_black": [
     "ROBOTO_roboto_black",
     "sans-serif"

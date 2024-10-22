@@ -1,3 +1,4 @@
+import type { Ora } from "ora";
 
 
 export interface IFontifyPath {
@@ -16,3 +17,13 @@ export interface IFontifyPath {
 export interface IFontifyPathData {
     projectDir: string;
 };
+
+export interface IFontifyLogger {
+    logger: Ora;   
+    text(textToChange: string): void;
+    color(colorToChange: string): void;
+}
+
+export interface IFontifyLoggerData {
+
+}

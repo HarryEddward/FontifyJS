@@ -1,5 +1,6 @@
 
-import { ignoreFileExtensions } from "../contants.js";
+import ora from "ora";
+import { ignoreFileExtensions } from "../constants.js";
 import { FontFinder } from "../font/utils/FontFinder.js";
 import { FontifyPath } from "../utils/FontifyPath.js";
 import type { ITailwindConfig, ITailwindConfigData } from "./types";
@@ -13,12 +14,15 @@ export class TailwindConfig implements ITailwindConfig {
     public configTailwindObject: { [key: string]: string[] } = {};
 
     constructor(data: ITailwindConfigData) {
+        logger.start();
         this.pathResolve = new FontifyPath({ projectDir: data.projectDir });
         this.makeConfigTailwindFile();
+        logger.succeed(`Compiled ${path.join(path.basename(data.projectDir), 'fontifyTailwind.js')} 📄`);
+        logger.stop();
     }
 
     public makeConfigTailwindFile(fileName: string = "fontifyTailwind.js"): void {
-        console.log('make config file tailwind...');
+        //console.log('make config file tailwind...');
 
         const finalPathConfig = path.join(this.pathResolve.projectDir, fileName);
 
@@ -50,3 +54,5 @@ export const configFontifyFonts = ${stringifyConfigTailwindObject};
 `.trim();
     }
 }
+
+const logger = ora(" 📄 Making config tailwind file...");

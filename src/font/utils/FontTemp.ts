@@ -14,7 +14,7 @@ export class FontTemp implements IFontTemp {
     }
 
     public removeAllTemp(pathTemp: string = this.pathResolve.generalTempPath()): void {
-        console.log('Removing: ', pathTemp);
+        //console.log('Removing: ', pathTemp);
         try {
             // Elimina la carpeta de manera recursiva
             fs.rmSync(pathTemp, { recursive: true });
@@ -25,7 +25,7 @@ export class FontTemp implements IFontTemp {
     }
 
     public removeAllFontTemp(pathTemp: string = this.pathResolve.fontsTempPath()): void {
-        console.log('Removing: ', pathTemp);
+        //console.log('Removing: ', pathTemp);
         try {
             // Elimina la carpeta de manera recursiva
             fs.rmSync(pathTemp, { recursive: true });
@@ -36,7 +36,7 @@ export class FontTemp implements IFontTemp {
     }
 
     public removeAllFontOptimizedTemp(pathTemp: string = this.pathResolve.optimizedFontsTempPath()): void {
-        console.log('Removing: ', pathTemp);
+        //console.log('Removing: ', pathTemp);
         try {
             // Elimina la carpeta de manera recursiva
             fs.rmSync(pathTemp, { recursive: true });

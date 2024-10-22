@@ -6,8 +6,9 @@ import path from 'path';
 import fs from 'fs'; // Usamos fs en lugar de fs/promises para manejar operaciones sincrónicas
 import AdmZip from 'adm-zip';
 import { FontFinder } from './utils/FontFinder.js';
-import { typesExtFont } from '../contants.js';
+import { typesExtFont } from '../constants.js';
 import { FontPath } from './utils/FontPath.js';
+import ora from 'ora';
 
 /**
  * In this class we do not use the main parent (FontInit), in this case is for extract all
@@ -29,6 +30,7 @@ export class FontExtract<T extends IFontExtractData = IFontExtractData> implemen
     public fontFilesPath: { [key: string]: string[] } = {};
 
     constructor(data: IFontExtractData) {
+        logger.start();
         this.arrayFilesNamesPath = data.arrayFilesNamesPath;
         this.workPath = data.workPath;
 
@@ -39,6 +41,8 @@ export class FontExtract<T extends IFontExtractData = IFontExtractData> implemen
         this.organizeFontsTemp(this.arrayFontsNameFolder);
         //console.log('------------ here!');
         //console.log(this.fontFilesPath);
+        logger.succeed("Extracted Fonts 🗂️");
+        logger.stop();
     }
 
     public extractPackagesZip(filesPaths: string[]): void {
@@ -48,28 +52,28 @@ export class FontExtract<T extends IFontExtractData = IFontExtractData> implemen
         // Asegúrate de que el directorio 'public' existe
         try {
             fs.mkdirSync(generalTempPath, { recursive: true });
-            console.log('generalTempPath: ', generalTempPath);
+            //console.log('generalTempPath: ', generalTempPath);
         } catch (error) {
             console.error(`Error al crear el directorio: ${error}`);
         }
-        console.log('filesPaths: ', filesPaths)
+        //console.log('filesPaths: ', filesPaths)
         for (const filePath of filesPaths) {
-            console.log('--here--', filesPaths);
+            //console.log('--here--', filesPaths);
             const zipFileName = path.parse(filePath).name
                 .toLowerCase()
                 .replace(/\s+/g, '_')
                 .replace(/[^a-z0-9_]/g, '_');
-            console.log(zipFileName);
+            //console.log(zipFileName);
 
             const zip = new AdmZip(filePath);
             zip.extractAllTo(path.join(generalTempPath, zipFileName), true);
 
             const customFontTempPathFolder: string = path.join(fontsTempPath, zipFileName);
-            console.log(customFontTempPathFolder);
+            //console.log(customFontTempPathFolder);
 
             try {
                 fs.mkdirSync(customFontTempPathFolder, { recursive: true });
-                console.log(zipFileName);
+                //console.log(zipFileName);
                 this.arrayFontsNameFolder.push(zipFileName); // Añadir después de crear la carpeta
                 //console.log(this.arrayZipFilesNames)
             } catch (error) {
@@ -85,33 +89,33 @@ export class FontExtract<T extends IFontExtractData = IFontExtractData> implemen
     public findFontFiles(folderPath: string, nameFolder: string): void {
         try {
 
-            console.log(folderPath);
+            //console.log(folderPath);
             // Llama a la función recursiva para obtener todos los archivos
             const files = FontFinder.getAllFilesInFolder(folderPath);
 
             // Filtra solo los archivos que tienen las extensiones de fuentes definidas
             const fontFiles = files.filter(file => this.typesExtFont.includes(path.extname(file).toLowerCase()));
 
-            console.log(fontFiles);
-            console.log(nameFolder);
+            //console.log(fontFiles);
+            //console.log(nameFolder);
             // Guarda los archivos de fuentes en la variable de clase
             this.fontFilesPath[nameFolder] = fontFiles;
 
-            console.log('Archivos de fuentes encontrados:', this.fontFilesPath);
+            //console.log('Archivos de fuentes encontrados:', this.fontFilesPath);
         } catch (error) {
-            console.error('Error al buscar archivos de fuentes:', error);
+            //console.error('Error al buscar archivos de fuentes:', error);
         }
     }
 
     public organizeFontsTemp(arrayNameFolderFontsTemp: string[]): void {
         try {
             // Usamos un bucle for...of para evitar problemas al iterar
-            console.log(arrayNameFolderFontsTemp)
+            //console.log(arrayNameFolderFontsTemp)
             for (const nameFontFolder of arrayNameFolderFontsTemp) {
                 const pathFontFolder = path.join(this.pathResolve.generalTempPath(), nameFontFolder);
-                console.log('<-', pathFontFolder);
+                //console.log('<-', pathFontFolder);
                 this.findFontFiles(pathFontFolder, nameFontFolder);
-                console.log('->', this.fontFilesPath);
+                //console.log('->', this.fontFilesPath);
             }
     
             
@@ -131,16 +135,18 @@ export class FontExtract<T extends IFontExtractData = IFontExtractData> implemen
     
                     try {
                         fs.renameSync(fontPath, targetPath);
-                        console.log(`Moved ${fontPath} to ${targetPath}`);
+                        //console.log(`Moved ${fontPath} to ${targetPath}`);
                     } catch (error) {
-                        console.error(`Error moving file ${fontPath} to ${targetPath}:`, error);
+                        //console.error(`Error moving file ${fontPath} to ${targetPath}:`, error);
                     }
                 }
             });
         } catch (e) {
-            console.log(e);
+            //console.log(e);
         }
     }
     
     
 }
+
+const logger = ora(" 🗂️ Extract Zip Files...");

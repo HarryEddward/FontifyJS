@@ -9,12 +9,30 @@ import type { IFontInitData, IFontExtractData, IFont, IFontData } from "./types"
 import { FontPath } from './utils/FontPath.js';
 
 export class Font implements IFont {
+    
+    public data: InitialData;
+    public analyzer: FontAnalyze;
+    public pathResolve: FontPath;
 
-    constructor(data: InitialData) {
-        const analyzer = new FontAnalyze(data);
-        const pathResolve = new FontPath({ projectDir: analyzer.folderWorkPath });
-        new FontExtract({ arrayFilesNamesPath: analyzer.arrayFilesNames, workPath: pathResolve.projectDir });
-        new FontOptimize({ projectDir: pathResolve.projectDir });
-        new FontOrganize({ projectDir: pathResolve.projectDir });
+    private constructor(data: InitialData) {
+        this.data = data;
+
+        this.analyzer = new FontAnalyze(data);
+        this.pathResolve = new FontPath({ projectDir: this.analyzer.folderWorkPath });
     }
-};
+
+    public async asyncFontOptimizer(): Promise<void> {
+        //console.log("projectDir: ", this.pathResolve)
+        await FontOptimize.create({ projectDir: this.pathResolve.projectDir });
+    }
+
+    public static async create(data: InitialData): Promise<Font> {
+        const instance = new Font(data);
+
+        new FontExtract({ arrayFilesNamesPath: instance.analyzer.arrayFilesNames, workPath: instance.pathResolve.projectDir });
+        await instance.asyncFontOptimizer();
+        new FontOrganize({ projectDir: instance.pathResolve.projectDir });
+        
+        return instance;
+    }
+}

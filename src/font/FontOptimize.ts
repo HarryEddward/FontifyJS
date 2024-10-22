@@ -4,22 +4,36 @@ import type { IFontOptimize, IFontOptimizeData } from './types';
 import { FontFinder } from './utils/FontFinder.js';
 import path from 'path';
 import fs from 'fs';
-import fsp from 'fs/promises';
-import { typesExtFont } from '../contants.js';
-import ttf2woff2 from 'ttf2woff2'; // Importar ttf2woff2
+import { typesExtFont } from '../constants.js';
+import { Font, woff2 } from 'fonteditor-core';
+import pako from 'pako';
 import { FontPath } from './utils/FontPath.js';
+import ora, { type Ora } from 'ora';
 
 export class FontOptimize implements IFontOptimize {
-
     public data: IFontOptimizeData;
     public pathResolve: FontPath;
-    public typesExtFont: string[] = ['.ttf'];
+    public typesExtFont: string[] = typesExtFont;
 
-    constructor(data: IFontOptimizeData) {
+    // Constructor modificado, ahora privado
+    private constructor(data: IFontOptimizeData) {
+        
         this.data = data;
         this.pathResolve = new FontPath({ projectDir: data.projectDir });
         this.renameCompatibleNameFiles();
-        this.optimizeFontsToWoff2();
+    }
+
+    // Método estático para crear instancias
+    public static async create(data: IFontOptimizeData): Promise<FontOptimize> {
+        
+        logger.start();
+        const instance = new FontOptimize(data);
+        await instance.optimizeFontsToWoff2();
+        logger.succeed('Optimized Fonts 🔄');
+        logger.stop();
+        
+        return instance;
+
     }
 
     public renameCompatibleNameFiles(): void {
@@ -33,56 +47,86 @@ export class FontOptimize implements IFontOptimize {
 
             const optimizedNameFontFile = (nameFontFileProccesed + path.extname(pathFont));
             const optimizedNameFontFilePath = path.join(path.dirname(pathFont), optimizedNameFontFile);
-            console.log('->', optimizedNameFontFilePath);
+            //console.log('->', optimizedNameFontFilePath);
 
             fs.renameSync(pathFont, optimizedNameFontFilePath);
         });
     }
 
-    public optimizeFontsToWoff2(): void {
-        //console.log('begin');
-        const fontsPaths = FontFinder.getAllFilesInFolder(this.pathResolve.fontsTempPath());
-        
-        // Crear la carpeta de salida de forma sincrónica
-        fs.mkdirSync(this.pathResolve.optimizedFontsTempPath(), { recursive: true });
-        console.log(fontsPaths);
-    
-        // Procesar cada archivo de forma sincrónica
-        for (const fontPath of fontsPaths) {
-            const extname = path.extname(fontPath).toLowerCase();
-            const outputPath = path.join(
-                this.pathResolve.optimizedFontsTempPath(),
-                path.basename(path.dirname(fontPath)),
-                path.basename(fontPath, extname) + '.woff2'
-            );
-            const pathFontFolderOptimize = path.join(
-                this.pathResolve.optimizedFontsTempPath(),
-                path.basename(path.dirname(fontPath))
-            );
-    
-            // Crear la carpeta de salida para la fuente optimizada de forma sincrónica
-            fs.mkdirSync(pathFontFolderOptimize, { recursive: true });
-    
-            if (this.typesExtFont.includes(extname)) {
-                try {
-                    // Leer el archivo de forma sincrónica
-                    const fontData = fs.readFileSync(fontPath);
-    
-                    // Convertir solo TTF a WOFF2
-                    if (extname === '.ttf') {
-                        const woff2Data: any = ttf2woff2(fontData); // Convertir TTF a WOFF2
-                        fs.writeFileSync(outputPath, woff2Data);
-                        console.log(`Optimized: [ ${path.basename(fontPath, extname)} ]`);
-                    } else {
-                        console.warn(`No conversion available for ${extname}`);
-                    }
-                } catch (error) {
-                    console.error(`Error converting ${fontPath}: ${error}`);
+    public async optimizeFontsToWoff2(): Promise<void> {
+        try {
+            const fontsPaths = FontFinder.getAllFilesInFolder(this.pathResolve.fontsTempPath());
+            fs.mkdirSync(this.pathResolve.optimizedFontsTempPath(), { recursive: true });
+            //console.log(fontsPaths);
+
+            for (const fontPath of fontsPaths) {
+                const extname = path.extname(fontPath).toLowerCase();
+                const outputPath = path.join(
+                    this.pathResolve.optimizedFontsTempPath(),
+                    path.basename(path.dirname(fontPath)),
+                    path.basename(fontPath, extname) + '.woff2'
+                );
+                const pathFontFolderOptimize = path.join(
+                    this.pathResolve.optimizedFontsTempPath(),
+                    path.basename(path.dirname(fontPath))
+                );
+
+                fs.mkdirSync(pathFontFolderOptimize, { recursive: true });
+
+                if (this.typesExtFont.includes(extname)) {
+                    await this.convertToWoff2(fontPath, outputPath);
+                    //logger.text = `Optimized: [ ${path.basename(fontPath, extname)} ]`;
                 }
             }
+            
+        } catch (e) {
+            console.error(e);
         }
-    
-        console.log('Finished converting fonts.');
     }
 
+    public getFontType(filePath: string): AllowedFontExt {
+        const ext = path.extname(filePath).toLowerCase();
+        switch (ext) {
+            case '.ttf':
+                return 'ttf';
+            case '.otf':
+                return 'otf';
+            case '.woff':
+                return 'woff';
+            default:
+                logger.fail(`Optimize Fonts Failed: File format not supported. Use TTF, OTF or WOFF`);
+                throw new Error('File format not supported. Use TTF, OTF or WOFF');
+        }
+    }
+
+    public async convertToWoff2(inputPath: string, outputPath: string): Promise<void> {
+        try {
+            await woff2.init();
+            const fontBuffer = fs.readFileSync(inputPath);
+            const fontType = this.getFontType(inputPath);
+            
+            let woff2Buffer: any;
+
+            if (fontType !== 'woff') {
+                const font = Font.create(fontBuffer, {
+                    type: fontType,
+                });
+                woff2Buffer = font.write({
+                    type: 'woff2',
+                    deflate: (rawData: number[]) => {
+                        const compressed = pako.deflate(new Uint8Array(rawData));
+                        return Array.from(compressed);
+                    },
+                });
+            } else {
+                woff2Buffer = woff2.encode(fontBuffer);
+            }
+
+            fs.writeFileSync(outputPath, woff2Buffer);
+        } catch (e) {
+            logger.fail(`Optimize Fonts Failed: ${e}`);  
+        }
+    }
 }
+
+const logger = ora(" 🔄 Optimize Fonts...");

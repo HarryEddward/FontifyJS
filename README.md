@@ -8,7 +8,7 @@
 
 <div align="center">
     <h3>Use Tailwind with Fontify:</h3>
-    <p>🔍 Check the compatible font (.ttf)</p>
+    <p>🔍 Check the compatible font (.ttf, .otf, .woff)</p>
     <p>🗂️ Extract Font-Zip Files</p>
     <p>🔄 Optimize all of your fonts to .woff2</p>
     <p>📂 Organize in separate folders</p>
@@ -34,7 +34,7 @@ import { FontifyJS } from "fontifyjs";
 FontifyJS({ projectDir: 'my-project' });
 ```
 
-### Native Typescript
+### Native Typescript (In Maintenance, do not use)
 `/fontify.ts/{your_project}`
 ```typescript
 import { FontifyJS } from "fontifyjs/ts";
@@ -46,7 +46,6 @@ FontifyJS({ projectDir: 'my-project' });
 - Put all of your zip-font files inside of `/{your_project}/fontLoader`
 - Do not put other type of file that is not a .zip file inside of fontLoader
 - Put only in the main directory (`/fontLoader`) the zip files, not in subdirectorys
-- If you put .otf file the lib can not convert to woff2 (beta)
 
 ## 🔥 Execute
 
@@ -233,6 +232,5 @@ export function App() {
 
 ## Things to improve
 - Manage more better the logs
-- Convert the .otf to .ttf and next to optimize all fonts with .woff2
 - Add to my github profile the project
 - Add more keywords relationate to the lib

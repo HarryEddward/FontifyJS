@@ -1,4 +1,4 @@
-
+// src/css/utils/type.ts
 
 export interface ICssPath {
     projectDir: string;
@@ -14,4 +14,12 @@ export interface ICssPath {
 
 export interface ICssPathData {
     projectDir: string;
+}
+
+export interface ICssLog {
+    
+}
+
+export interface ICssLogData {
+
 }

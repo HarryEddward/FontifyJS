@@ -4,14 +4,19 @@ import type { ICssFile } from "./types";
 import fs from 'fs';
 import path, { extname } from 'path';
 import { FontFinder } from "../font/utils/FontFinder.js";
-import { ignoreFileExtensions } from "../contants.js";
+import { ignoreFileExtensions } from "../constants.js";
+import ora from "ora";
 
 export class CssFile implements ICssFile {
     public pathResolve: FontifyPath;
 
     constructor(data: ICssPathData) {
+        logger.start();
         this.pathResolve = new FontifyPath({ projectDir: data.projectDir });
         this.makeCssFile();
+
+        logger.succeed(`Compiled ${path.join(path.basename(data.projectDir), 'fontify.css')} 📄`);
+        logger.stop();
     }
 
 
@@ -39,7 +44,7 @@ export class CssFile implements ICssFile {
             );
         });
         
-        console.log(obtainRelativeAllPathsFonts);
+        //console.log(obtainRelativeAllPathsFonts);
         const fontFormat = "woff2"; // Puedes cambiar el formato si es necesario
 
         try {
@@ -71,3 +76,5 @@ Thanks for using FonitfyJS here can you manage all of the proccesed fonts for yo
 `
     }
 }
+
+const logger = ora(" 📄 Making css file...");

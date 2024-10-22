@@ -1,17 +1,21 @@
 // src/font/FontAnalyze.ts
+import ora from 'ora';
 import { FontInit } from './FontInit.js';
 import type { IFontAnalyze, IFontInitData } from './types';
 
 import fs from 'fs';
 import path from 'path';
 
-export class FontAnalyze<T extends IFontInitData> extends FontInit implements IFontAnalyze {
+export class FontAnalyze extends FontInit implements IFontAnalyze {
     
     
 
     constructor(data: IFontInitData) {
+        logger.start();
         super(data);
         this.analyzeZipFiles(); // Ejecuta el análisis al instanciar
+        logger.succeed("Files Analyzed 🔍");
+        logger.stop();
     };
 
     public analyzeZipFiles(): void {
@@ -23,7 +27,7 @@ export class FontAnalyze<T extends IFontInitData> extends FontInit implements IF
             }
 
             const res = this.checkAllFilesAreZip(fontLoaderPath);
-            console.log(res);
+            //console.log(res);
 
         } catch (error: any) {
             throw new Error(`Error while analyzing zip files: ${error.message}`);
@@ -56,3 +60,5 @@ export class FontAnalyze<T extends IFontInitData> extends FontInit implements IF
         }
     }
 }
+
+const logger = ora(" 🔍 Analyzing if are other files than zip files...");

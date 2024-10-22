@@ -4,7 +4,7 @@ import type { IFontInit, IFontInitData } from './types';
 import path from 'path';
 
 export class FontInit implements IFontInit {
-    public typesExtFont: string[] = ['.ttf', '.otf'];
+    public typesExtFont: string[] = ['.ttf', '.otf', '.woff'];
     public arrayFilesNames: string[] = [];
     public folderWorkPath: string = '';
     public projectDir: string | undefined;
@@ -13,7 +13,7 @@ export class FontInit implements IFontInit {
     constructor(data: IFontInitData) {
         this.data = data;
         this.initializeVars();
-        console.log(this.folderWorkPath);
+        //console.log(this.folderWorkPath);
     }
 
     public initializeVars(): void {
