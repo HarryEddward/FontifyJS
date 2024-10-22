@@ -15,10 +15,14 @@
     <p>✅ Ready for use it without a configuration</p>
 </div>
 
-# Most Important
-1. [Usage](#‼️-Usage-‼️)
-2. [](#sección-1)
-3. [Sección 2](#sección-2)
+# Index
+1. [‼️ Usage ‼️](#‼️-usage-‼️)
+2. [🗒️ Manual Configuration 🗒️](#🗒️-manual-configuration-🗒️)
+   - [Steps before execute](#🧯-steps-before-execute)
+   - [What will happen?](#what-will-happen)
+   - [Tailwind](#tailwind-‼️)
+3. [Example Without Tailwind (Pure CSS)](#example-without-tailwind-pure-css)
+4. [⚠️ Things to keep in mind](#⚠️-things-to-keep-in-mind)
 
 ## ‼️ Usage ‼️
 - ✅ ZIP with disorganized and unoptimized sources, is not a problem with Fontify!
