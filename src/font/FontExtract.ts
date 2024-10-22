@@ -5,9 +5,9 @@ import type { IFontExtract, IFontInitData, IFontExtractData } from './types';
 import path from 'path';
 import fs from 'fs'; // Usamos fs en lugar de fs/promises para manejar operaciones sincrónicas
 import AdmZip from 'adm-zip';
-import { FontPath } from './utils';
 import { FontFinder } from './utils/FontFinder.js';
 import { typesExtFont } from '../contants.js';
+import { FontPath } from './utils/FontPath.js';
 
 /**
  * In this class we do not use the main parent (FontInit), in this case is for extract all

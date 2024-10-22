@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <div>
-        <h1 className='font-ROBOTO_roboto_mediumitalic text-7xl'>ADRIAN</h1>
+        <h1 className='font-AGDASIMA_COPY_agdasima_bold'>ADRIAN</h1>
       </div>
     </>
   )

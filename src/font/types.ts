@@ -1,6 +1,6 @@
 // src/font/types.ts
 
-import { FontPath } from "./utils";
+import { FontPath } from "./utils/FontPath.js";
 import type { FontTemp } from "./utils/FontTemp.js";
 import type { IFontPath, IFontPathData } from "./utils/types";
 
